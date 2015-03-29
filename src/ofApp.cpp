@@ -1,33 +1,27 @@
 #include "ofApp.h"
 
+using namespace ofxCv;
+using namespace cv;
+
 //--------------------------------------------------------------
 void ofApp::setup(){
+    // Camera
+    cam.setDeviceID(0);
+    cam.initGrabber(ofGetWidth(), ofGetHeight());
 
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    cam.update();
+    if(cam.isFrameNew()) {
+        originalImage.setFromPixels(cam.getPixelsRef());
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::keyPressed(int key){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-
+    originalImage.draw(0, 0);
 }
 
 //--------------------------------------------------------------
@@ -42,20 +36,5 @@ void ofApp::mousePressed(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
 
 }
