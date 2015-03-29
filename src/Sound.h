@@ -8,7 +8,7 @@ public:
     Sound();
     
     void setup(int i, ofVec2f position);
-    void update(ofxCvGrayscaleImage grayDiff);
+    void update(ofxCvGrayscaleImage grayDiff, int threshold);
     void draw();
     
     ofVec2f position;

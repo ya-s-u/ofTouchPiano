@@ -25,7 +25,9 @@ public:
     ofVideoGrabber cam;
     ofxCvColorImage colorImg;
     ofxCvGrayscaleImage last_grayImg, grayImg, grayDiff;
+    
     int threshold;
+    int touch_threshold;
     
     Sound sounds[8];
 };

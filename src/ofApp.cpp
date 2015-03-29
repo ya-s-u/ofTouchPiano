@@ -7,6 +7,7 @@ using namespace cv;
 void ofApp::setup(){
     ofSetFrameRate(30);
     wsize = ofGetWindowSize();
+    touch_threshold = 5;
     
     // Camera
     cam.setDeviceID(0);
@@ -53,7 +54,7 @@ void ofApp::update(){
     }
     
     for(int i=0; i<8; i++) {
-        sounds[i].update(grayDiff);
+        sounds[i].update(grayDiff, touch_threshold);
     }
 }
 
@@ -103,11 +104,17 @@ void ofApp::keyPressed(int key){
     
     if(debugMode) {
         switch(key) {
-            case 'w':
+            case 'q':
                 threshold++;
                 break;
-            case 's':
+            case 'a':
                 threshold--;
+                break;
+            case 'w':
+                touch_threshold++;
+                break;
+            case 's':
+                touch_threshold--;
                 break;
         }
     }
