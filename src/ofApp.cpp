@@ -9,6 +9,10 @@ void ofApp::setup(){
     cam.setDeviceID(0);
     cam.initGrabber(ofGetWidth(), ofGetHeight());
 
+    // Sound Balls
+    for(int i=0; i<8; i++) {
+        sounds[i].setup(i, ofVec2f(100+i*100, 500));
+    }
 }
 
 //--------------------------------------------------------------
@@ -21,20 +25,10 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    ofSetColor(255, 255, 255);
     originalImage.draw(0, 0);
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
-
+    
+    for(int i=0; i<8; i++) {
+        sounds[i].draw();
+    }
 }
