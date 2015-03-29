@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxCv.h"
+#include "ofxOpenCv.h"
 #include "Sound.h"
 
 using namespace ofxCv;
@@ -13,8 +14,12 @@ public:
     void update();
     void draw();
     
+    ofVec2f wsize;
+    
     ofVideoGrabber cam;
-    ofImage originalImage;
+    ofxCvColorImage colorImg;
+    ofxCvGrayscaleImage last_grayImg, grayImg, grayDiff;
+    int threshold;
     
     Sound sounds[8];
 };
