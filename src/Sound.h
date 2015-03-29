@@ -11,4 +11,5 @@ public:
     void draw();
     
     ofVec2f position;
+    int radius;
 };
