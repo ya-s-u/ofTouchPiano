@@ -14,7 +14,13 @@ public:
     void update();
     void draw();
     
+    void drawGame();
+    void drawDebug();
+    
+    void keyPressed(int key);
+    
     ofVec2f wsize;
+    bool debugMode;
     
     ofVideoGrabber cam;
     ofxCvColorImage colorImg;

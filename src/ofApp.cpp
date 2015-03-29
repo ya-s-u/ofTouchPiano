@@ -55,10 +55,56 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    if(debugMode) {
+        drawDebug();
+    } else {
+        drawGame();
+    }
+}
+
+//--------------------------------------------------------------
+void ofApp::drawGame(){
+    ofSetColor(255, 255, 255);
+    colorImg.draw(0, 0);
+    
+    for(int i=0; i<8; i++) {
+        sounds[i].draw();
+    }
+    
+    ofSetWindowTitle(ofToString(ofGetFrameRate()));
+}
+
+//--------------------------------------------------------------
+void ofApp::drawDebug(){
     ofSetColor(255, 255, 255);
     grayDiff.draw(0, 0);
     
     for(int i=0; i<8; i++) {
         sounds[i].draw();
+    }
+    
+    ofSetWindowTitle(ofToString(threshold));
+}
+
+//--------------------------------------------------------------
+void ofApp::keyPressed(int key){
+    switch(key) {
+        case '1':
+            debugMode = false;
+            break;
+        case '2':
+            debugMode = true;
+            break;
+    }
+    
+    if(debugMode) {
+        switch(key) {
+            case 'w':
+                threshold++;
+                break;
+            case 's':
+                threshold--;
+                break;
+        }
     }
 }
