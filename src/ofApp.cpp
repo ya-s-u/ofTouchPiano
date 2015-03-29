@@ -22,13 +22,13 @@ void ofApp::setup(){
     threshold = 40;
 
     // Sound Balls
-    sounds[0].setup(0, ofVec2f(100, wsize.y-100));
-    sounds[1].setup(1, ofVec2f(140, wsize.y/2+40));
-    sounds[2].setup(2, ofVec2f(280, 200));
-    sounds[3].setup(3, ofVec2f(wsize.x/2-160, 100));
-    sounds[4].setup(4, ofVec2f(wsize.x/2+160, 100));
-    sounds[5].setup(5, ofVec2f(wsize.x-280, 200));
-    sounds[6].setup(5, ofVec2f(wsize.x-280, 200));
+    sounds[0].setup(0, ofVec2f(900, 200)); //バスドラ
+    sounds[1].setup(1, ofVec2f(1100, 440)); //クラッシュシンバル
+    sounds[2].setup(2, ofVec2f(280, 120)); //タム1
+    sounds[3].setup(3, ofVec2f(480, 30)); //タム2
+    sounds[4].setup(4, ofVec2f(720, 30)); //タム3
+    sounds[5].setup(5, ofVec2f(100, 280)); //ハイハット
+    sounds[6].setup(6, ofVec2f(40, 500)); //スネア
     
     // get First frame & set last_grayImg
     cam.update();

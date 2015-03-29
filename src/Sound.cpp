@@ -10,9 +10,13 @@ Sound::Sound(){
 void Sound::setup(int i, ofVec2f _position){
     position = _position;
     
-    std::ostringstream filename;
-    filename << "sounds/" << i << ".wav";
-    note.loadSound(filename.str());
+    std::ostringstream img_file;
+    img_file << "images/" << i << ".png";
+    img.loadImage(img_file.str());
+    
+    std::ostringstream sound_file;
+    sound_file << "sounds/" << i << ".wav";
+    note.loadSound(sound_file.str());
 }
 
 void Sound::update(ofxCvGrayscaleImage grayDiff, int threshold){
@@ -56,8 +60,7 @@ void Sound::draw(){
         ofSetColor(255, 0, 0, 160-state*10);
         ofCircle(position, radius+state*50);
         if(state==1) note.play();
-    } else {
-        ofSetColor(0, 0, 255, 160);
-        ofCircle(position, radius);
     }
+    
+    img.draw(position);
 }

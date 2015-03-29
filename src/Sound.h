@@ -13,6 +13,7 @@ public:
     
     ofVec2f position;
     int radius;
+    ofImage img;
     ofSoundPlayer note;
     int state;
     
