@@ -13,6 +13,8 @@ public:
     
     ofVec2f position;
     int radius;
+    ofSoundPlayer note;
+    int state;
     
     bool touched;
 };
