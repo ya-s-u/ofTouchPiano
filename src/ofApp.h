@@ -29,5 +29,6 @@ public:
     int threshold;
     int touch_threshold;
     
-    Sound sounds[8];
+    Sound sounds[7];
+    int sound_size;
 };

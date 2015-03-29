@@ -8,6 +8,7 @@ void ofApp::setup(){
     ofSetFrameRate(30);
     wsize = ofGetWindowSize();
     touch_threshold = 5;
+    sound_size = 7;
     
     // Camera
     cam.setDeviceID(0);
@@ -27,8 +28,7 @@ void ofApp::setup(){
     sounds[3].setup(3, ofVec2f(wsize.x/2-160, 100));
     sounds[4].setup(4, ofVec2f(wsize.x/2+160, 100));
     sounds[5].setup(5, ofVec2f(wsize.x-280, 200));
-    sounds[6].setup(6, ofVec2f(wsize.x-140, wsize.y/2+40));
-    sounds[7].setup(7, ofVec2f(wsize.x-100, wsize.y-100));
+    sounds[6].setup(5, ofVec2f(wsize.x-280, 200));
     
     // get First frame & set last_grayImg
     cam.update();
@@ -53,7 +53,7 @@ void ofApp::update(){
         last_grayImg = grayImg;
     }
     
-    for(int i=0; i<8; i++) {
+    for(int i=0; i<sound_size; i++) {
         sounds[i].update(grayDiff, touch_threshold);
     }
 }
@@ -72,7 +72,7 @@ void ofApp::drawGame(){
     ofSetColor(255, 255, 255);
     colorImg.draw(0, 0);
     
-    for(int i=0; i<8; i++) {
+    for(int i=0; i<sound_size; i++) {
         sounds[i].draw();
     }
     
@@ -84,7 +84,7 @@ void ofApp::drawDebug(){
     ofSetColor(255, 255, 255);
     grayDiff.draw(0, 0);
     
-    for(int i=0; i<8; i++) {
+    for(int i=0; i<sound_size; i++) {
         sounds[i].draw();
     }
     
