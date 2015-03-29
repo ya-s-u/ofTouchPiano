@@ -51,6 +51,10 @@ void ofApp::update(){
         
         last_grayImg = grayImg;
     }
+    
+    for(int i=0; i<8; i++) {
+        sounds[i].update(grayDiff);
+    }
 }
 
 //--------------------------------------------------------------
